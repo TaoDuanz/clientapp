@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>JSX</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+            function formatName(user) {
+                return user.firstName + ' ' + user.lastName;
+            }
+
+            function getGreeting(user) {
+                if (user) {
+                    return <h1>Hello, {formatName(user)}!</h1>;
+                }
+                return <h1>Hello, Stranger.</h1>;
+            }
+
+
+            const user = {
+                firstName: 'Harper',
+                lastName: 'Perez'
+            };
+
+            const element = (
+            <div>
+                <h1>Hello!</h1>
+                <h2>Good to see you here.</h2>
+                <h1>
+                    Hello, {getGreeting(user)}
+                </h1>
+            </div>
+            );
+
+            // const element=React.createElement(
+            //     'h1',
+            //     {className:'greeting'},
+            //     'Hello,world!'
+            // );    
+
+
+            ReactDOM.render(
+                element,
+                document.getElementById('root')
+            );
+
+    </script>
+    
+  </body>
+</html>
